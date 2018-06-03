@@ -25,24 +25,25 @@ function success(req, res, next) {
 
 function validateUserDetails(details) {
     let result = {error: false, details: {}};
-    if (!(details.name.length)) {
+    if (!details.name || !(details.name && details.name.length)) {
         result.error = true;
-        result.details.name = 'Invalid Name';
+        result.details.reason = 'Invalid Name';
     }
-    if (!(details.sex.length)) {
+    if (!details.sex || !(details.sex && details.sex.length)) {
         result.error = true;
-        result.details.sex = 'Invalid Sex';
+        result.details.reason = 'Invalid Sex';
     }
-    if (!(parseInt(details.age) > 0)) {
+    if (!details.age || !(details.age && parseInt(details.age) > 0)) {
         result.error = true;
-        result.details.age = 'Invalid Age';
+        result.details.reason = 'Invalid Age';
     }
-    if (!(details.country.length)) {
+    if (!details.country && !(details.country && details.country.length)) {
         result.error = true;
-        result.details.country = 'Invalid Country';
+        result.details.reason = 'Invalid Country';
     }
     return result;
 
 }
 
-module.exports = Create;
+module.exports.Create = Create;
+module.exports.ValidateUsers = validateUserDetails;

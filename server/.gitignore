@@ -1,2 +1,5 @@
 node_modules/
 .npm/
+spec/
+lib/
+.gitignore
