@@ -9,7 +9,7 @@ This is a competency test to create form for user to enter his,
  - Country
 And save the data on Backend.
 
-### The test is divided in two sections:
+##### The test is divided in two sections:
  **[Backend](https://github.com/rahulmeghlan/comptencyTest#backend)**
  **[Frontend](https://github.com/rahulmeghlan/comptencyTest#frontend)**
 
