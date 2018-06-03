@@ -11,7 +11,7 @@ And save the data on Backend.
 The test is divided in two sections:
  - **[Backend](https://github.com/rahulmeghlan/comptencyTest#backend)**
  -
-   **Frontend**
+   **[Frontend](https://github.com/rahulmeghlan/comptencyTest#frontend)**
 
 
 ## Backend
@@ -55,7 +55,7 @@ The code for frontend is available in the client directory of the repository.
 ### Requirement
 Create Frontend with a form having four fields:
  1. Name
- 2. Sex
+ 2. Gender
  3. Age
  4. Country
 
