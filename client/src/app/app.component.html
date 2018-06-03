@@ -23,12 +23,12 @@
     </div>
     <div class="row form-group">
       <label class="col-6" for="country">Country: </label>
-      <select class="form-control col-6" id="country" name="country" ngModel>
+      <select class="form-control col-6" id="country" name="country" ngModel required>
         <option *ngFor="let country of countryList" [ngValue]="country.name">{{country.name}}</option>
       </select>
     </div>
     <div class="row form-group">
-      <input class="col-3 btn btn-primary" type="submit" value="Apply">
+      <input class="col-3 btn btn-primary" [disabled]="govtForm.invalid" type="submit" value="Apply">
     </div>
   </form>
 </div>
