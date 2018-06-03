@@ -4,6 +4,7 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let db = require('./model/db');
+let personDetails = require('./model/personDetails.schema');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 
@@ -11,7 +12,6 @@ let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
