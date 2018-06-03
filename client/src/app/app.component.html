@@ -3,27 +3,29 @@
   <h1>
     Some Useful Government Service
   </h1>
-  <form>
+  <form #govtForm="ngForm" (ngSubmit)="onSubmit(govtForm)">
     <div class="row form-group">
       <label class="col-6" for="name">Name: </label>
-      <input class="col-6 form-control" id="name" type="text" placeholder="Full Name">
+      <input class="col-6 form-control" id="name" name="name" ngModel required type="text" placeholder="Full Name">
     </div>
     <div class="row form-group">
       <span class="col-6">Sex: </span>
       <div class="col-6">
-        <input class="form-check-input" id="male" type="radio" name="sex" value="Male"/>
+        <input class="form-check-input" id="male" type="radio" ngModel required name="sex" value="Male"/>
         <label class="form-check-label" style="margin-right: 30px" for="male">Male</label>
-        <input class="form-check-input" id="female" type="radio" name="sex" value="Female"/>
+        <input class="form-check-input" id="female" type="radio" ngModel required name="sex" value="Female"/>
         <label class="form-check-label" for="female">Female</label>
       </div>
     </div>
     <div class="row form-group">
       <label class="col-6" for="age">Age: </label>
-      <input class="col-6 form-control" id="age" type="number" min="1" placeholder="Age">
+      <input class="col-6 form-control" id="age" name="age" ngModel required type="number" min="1" placeholder="Age">
     </div>
     <div class="row form-group">
       <label class="col-6" for="country">Country: </label>
-      <input class="col-6 form-control" id="country" type="text" placeholder="Country">
+      <select class="form-control col-6" id="country" name="country" ngModel>
+        <option *ngFor="let country of countryList" [ngValue]="country">{{country.name}}</option>
+      </select>
     </div>
     <div class="row form-group">
       <input class="col-3 btn btn-primary" type="submit" value="Apply">
