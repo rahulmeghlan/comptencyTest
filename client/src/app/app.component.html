@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="app-component">
+<div class="app-component" *ngIf="result === null || (result !== null && result.result === 'error')">
   <h1>
     Some Useful Government Service
   </h1>
@@ -24,7 +24,7 @@
     <div class="row form-group">
       <label class="col-6" for="country">Country: </label>
       <select class="form-control col-6" id="country" name="country" ngModel>
-        <option *ngFor="let country of countryList" [ngValue]="country">{{country.name}}</option>
+        <option *ngFor="let country of countryList" [ngValue]="country.name">{{country.name}}</option>
       </select>
     </div>
     <div class="row form-group">
@@ -33,3 +33,7 @@
   </form>
 </div>
 
+<div class="app-component" *ngIf="result !== null && result.result === 'success'">
+  <h1>Application Complete</h1>
+  <p>{{result.details.name}} Thankyou for applying to this useful government service.</p>
+</div>

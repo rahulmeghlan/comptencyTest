@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,9 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private http: HttpClient) {
+  }
 
   countryList = [{
     "name": "Åland Islands",
@@ -1283,7 +1287,15 @@ export class AppComponent {
     "relevance": "2.5"
   }];
 
+  result = null;
+
   onSubmit(form: NgForm) {
-    console.log(form);
+    if (form.valid) {
+      this.http.post('http://localhost:3000/create', form.value, {
+        headers: new HttpHeaders({'Content-Type': 'application/json'})
+      }).subscribe(res => {
+        this.result = res;
+      });
+    }
   }
 }
